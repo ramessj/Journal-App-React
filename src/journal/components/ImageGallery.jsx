@@ -2,14 +2,15 @@ import { ImageList, ImageListItem } from '@mui/material';
 
 export const ImageGallery = () => {
   return (
-    <ImageList sx={{ width: '100%', height: 500}} cols={4} rowHeight={'auto'} gap={10} >
+    <ImageList sx={{ width: '100%', height: 455 } } gap={15}>
       {itemData.map((item) => (
-        <ImageListItem key={item.img}>
+        <ImageListItem key={item.img} >
           <img
             src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2`}
             alt={item.title}
             loading="lazy"
+						
           />
         </ImageListItem>
       ))}
