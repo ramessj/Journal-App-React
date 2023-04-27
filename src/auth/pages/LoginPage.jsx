@@ -1,18 +1,18 @@
-import { Link as RouterLink } from 'react-router-dom';
-import { AuthLayout } from '../layout/AuthLayout';
 import { useDispatch } from 'react-redux';
+import { Link as RouterLink } from 'react-router-dom';
 import { Grid, TextField, Typography, Button, Link } from '@mui/material';
 import { Google } from '@mui/icons-material';
+import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks/useForm';
-import { checkingAuthentication } from '../../redux/store/auth/thunks';
+import { checkingAuthentication } from '../../redux/store/auth';
 
 export const LoginPage = () => {
 
 	const dispatch = useDispatch();
 
 	const { email, password, onInputChange } = useForm({
-		email: 'ramiroquesadaperez@gmail.com',
-		password: '123456'
+		email: '',
+		password: ''
 	})
 
 	const onSubmit = (event) => {
@@ -24,6 +24,8 @@ export const LoginPage = () => {
 	}
 
 	const onGoogleSignIn = () => {
+
+		dispatch( checkingAuthentication() )
 		console.log('onGoogleSignIn')
 	}
 
