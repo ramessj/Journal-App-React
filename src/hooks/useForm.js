@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 export const useForm = (initialForm = {}, formValidations = {}) => {
 	const [formState, setFormState] = useState(initialForm);
@@ -8,7 +8,7 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
 
 	useEffect(() => {
 		createValidators();
-	}, [formState]);
+	}, [ formState ]);
 
 	const onInputChange = ({ target }) => {
 		const { name, value } = target;
@@ -17,6 +17,15 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
 			[name]: value,
 		});
 	};
+
+	const isFormValid = useMemo( () => {
+
+		for (const formValue of Object.keys( formValidation )){
+			if (formValidation[formValue] !== null ) return false
+		}
+
+		return true;
+	}, [ formValidation ])
 
 	const onResetForm = () => {
 		setFormState(initialForm);
@@ -36,7 +45,7 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
 				: errorMessage;
 		}
 	
-		setFormValidation(formCheckedValues);
+		setFormValidation(formCheckedValues);		
 	};
 
 	return {
@@ -46,5 +55,6 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
 		onResetForm,
 
 		...formValidation,
+		isFormValid,
 	};
 };
