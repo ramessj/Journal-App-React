@@ -32,27 +32,25 @@ export const startCreatingUserWithEmailPassword = ({email, password, displayName
 
 		const {ok, uid, photoURL, errorMessage } = await registerUserWithEmailPassword({email, password, displayName});
 
-		if(!ok) return dispatch( logout( errorMessage ) )
+		if(!ok) return dispatch( logout( errorMessage ) );
 
 		dispatch( login({ uid, displayName, email, photoURL }) );
 
 	}	
 }
 
-export const startLoginWithEmailPassword = ({ email, password }) => {
+export const startLoginWithEmailPassword = ({ email, password }, view) => {
 	return async ( dispatch ) => {
 
-		dispatch( checkingCredentials() );
-
 		const resp = await loginWithEmailPassword({ email, password });
-
 		
-		if(!resp.ok){
-			return dispatch( logout(resp) )
+		view.setLoading(false);
+		
+		if(!resp.ok){	
+			dispatch( logout( resp.errorMessage ) );
+		}else{
+			dispatch( login(resp) );
 		}
-
-		dispatch( login( resp ) )
-
 		
 	}
 }

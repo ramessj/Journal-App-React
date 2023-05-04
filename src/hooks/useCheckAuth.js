@@ -5,7 +5,7 @@ import { FirebaseAuth } from "../firebase/config"
 import { logout, login } from "../redux/store/auth"
 
 export const useCheckAuth = () => {
-	const {status} = useSelector( state => state.auth );
+	const {status, errorMessage} = useSelector( state => state.auth );
 	
 	const dispatch = useDispatch();
 
@@ -13,11 +13,13 @@ export const useCheckAuth = () => {
 
 		onAuthStateChanged( FirebaseAuth, async(user)=>{
 			
-			if(!user) return dispatch(logout());
-
-			const {uid, email, displayName, photoURL} = user;
-
-			dispatch(login({uid, email, displayName, photoURL}))
+			if(!user) {
+				dispatch(logout(errorMessage));
+			} else {
+				const {uid, email, displayName, photoURL} = user;
+				dispatch(login({uid, email, displayName, photoURL}))
+			}
+			
 		} )	
 		
 	}, );
