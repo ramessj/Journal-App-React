@@ -14,7 +14,7 @@ export const SideBarItem = ({title = '', body, id, date, imageUrls = []}) => {
 	}, [title] )
 	
 	const onNoteClick = () => {
-		dispatch( setActiveNote( {title, body, id} ) )
+		dispatch( setActiveNote( {date, title, body, id} ) )
 	}
 
 	return (
