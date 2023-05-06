@@ -29,7 +29,7 @@ export const SideBar = ({drawerWidth}) => {
 					</Toolbar>
 					<Divider />
 
-					<List>
+					<List sx={{mt: 4}}>
 						{
 							notes.map( note => (
 								<SideBarItem key={note.id} {...note} />
