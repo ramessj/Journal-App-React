@@ -1,7 +1,6 @@
-import { AppBar, Grid, IconButton, Toolbar, Typography } from '@mui/material';
-import { MenuOutlined } from '@mui/icons-material';
-import { LogoutOutlined } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
+import { AppBar, Grid, IconButton, Toolbar, Typography } from '@mui/material';
+import { MenuOutlined, LogoutOutlined } from '@mui/icons-material';
 import { startLogout } from '../../redux/store/auth';
 
 export const NavBar = ({ drawerWidth }) => {
@@ -33,7 +32,7 @@ export const NavBar = ({ drawerWidth }) => {
 					justifyContent={'space-between'}
 					alignItems={'center'}>
 					<Typography variant="h6" noWrap component={'div'}>
-						JournalApp
+						My Journal
 					</Typography>
 
 					<IconButton color="error" onClick={onLogout}>
