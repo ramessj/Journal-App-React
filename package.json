@@ -1,5 +1,6 @@
 {
   "name": "journal-app-react",
+  "homepage": "https://ramessj.github.io/Journal-App-React",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -14,6 +15,7 @@
     "@mui/icons-material": "5.11.11",
     "@mui/material": "5.11.15",
     "@reduxjs/toolkit": "1.9.5",
+    "dotenv": "^16.0.3",
     "firebase": "9.20.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",

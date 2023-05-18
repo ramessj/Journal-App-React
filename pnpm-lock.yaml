@@ -16,6 +16,9 @@ dependencies:
   '@reduxjs/toolkit':
     specifier: 1.9.5
     version: 1.9.5(react-redux@8.0.5)(react@18.2.0)
+  dotenv:
+    specifier: ^16.0.3
+    version: 16.0.3
   firebase:
     specifier: 9.20.0
     version: 9.20.0
@@ -32,7 +35,7 @@ dependencies:
     specifier: 6.10.0
     version: 6.10.0(react-dom@18.2.0)(react@18.2.0)
   sweetalert2:
-    specifier: ^11.7.5
+    specifier: 11.7.5
     version: 11.7.5
 
 devDependencies:
@@ -54,9 +57,6 @@ devDependencies:
   eslint-plugin-react:
     specifier: 7.32.2
     version: 7.32.2(eslint@8.37.0)
-  uuid:
-    specifier: 9.0.0
-    version: 9.0.0
   vite:
     specifier: 4.2.0
     version: 4.2.0
@@ -3261,6 +3261,11 @@ packages:
       csstype: 3.1.2
     dev: false
 
+  /dotenv@16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
+    dev: false
+
   /electron-to-chromium@1.4.385:
     resolution: {integrity: sha512-L9zlje9bIw0h+CwPQumiuVlfMcV4boxRjFIWDcLfFqTZNbkwOExBzfmswytHawObQX4OUhtNv8gIiB21kOurIg==}
     dev: true
@@ -5148,11 +5153,6 @@ packages:
     dependencies:
       react: 18.2.0
     dev: false
-
-  /uuid@9.0.0:
-    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
-    hasBin: true
-    dev: true
 
   /vite-plugin-eslint@1.8.1(eslint@8.37.0)(vite@4.2.0):
     resolution: {integrity: sha512-PqdMf3Y2fLO9FsNPmMX+//2BF5SF8nEWspZdgl4kSt7UvHDRHVVfHvxsD7ULYzZrJDGRxR81Nq7TOFgwMnUang==}
